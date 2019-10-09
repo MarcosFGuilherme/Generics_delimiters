@@ -2,15 +2,13 @@ package model.services;
 
 import java.util.List;
 
-import model.entities.Product;
-
-public class CalculationService {
-	public static Product max(List<Product> list) {
+public class  CalculationService {
+	public static <T extends Comparable<? super T>> T max(List<T> list) {
 		if(list.isEmpty()) {
 			throw new IllegalStateException("List can't be empty");
 		}
-		Product  max = list.get(0);
-		for(Product item: list) {
+		T  max = list.get(0);
+		for(T item: list) {
 			if(item.compareTo(max)>0) {
 				max = item;
 			}
